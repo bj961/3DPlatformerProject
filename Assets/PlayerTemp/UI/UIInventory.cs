@@ -23,7 +23,7 @@ public class UIInventory : MonoBehaviour
     public GameObject unequipButton;
     public GameObject dropButton;
 
-    private PlayerController controller;
+    private PlayerController_tmp controller;
     private PlayerCondition condition;
 
     ItemData selectedItem;

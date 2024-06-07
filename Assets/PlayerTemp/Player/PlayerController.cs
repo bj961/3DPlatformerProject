@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerController_tmp : MonoBehaviour
 {
     [Header("Movement")]
     public float defaultMoveSpeed;

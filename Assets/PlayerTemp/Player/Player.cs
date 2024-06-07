@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerController controller;
+    public PlayerController_tmp controller;
     public PlayerCameraController cameraController;
     public PlayerCondition condition;
     public Equipment equip;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
-        controller = GetComponent<PlayerController>();
+        controller = GetComponent<PlayerController_tmp>();
         cameraController = GetComponent<PlayerCameraController>();
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
