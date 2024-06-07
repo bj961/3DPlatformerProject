@@ -153,6 +153,9 @@ public class PlayerController_tmp : MonoBehaviour
         // -> 마우드델타x값에 마우스 민감도 곱해서 y축에 넣어줌
         camCurXRot += mouseDelta.y * lookSensivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook); // Clamp() : 최소값보다 작아지면 최대값 반환, 최대값보다 커지면 최소값 반환
+
+        Debug.Log("mouseDelta : " + mouseDelta + "\ncamCurXRot : " + camCurXRot);
+
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0); // - 붙여준 이유 : 마우스 이동과 회전이 반대라서 그럼 (실제 로테이션 값 바꿔봐라)
 
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensivity, 0);
@@ -192,15 +195,15 @@ public class PlayerController_tmp : MonoBehaviour
     {
         Ray[] rays = new Ray[4]
         {
-            new Ray(transform.position + (transform.forward * 0.2f) + (transform.up*0.01f), Vector3.down),
-            new Ray(transform.position + (transform.forward * 0.2f) + (transform.up*0.01f), Vector3.down),
             new Ray(transform.position + (transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down),
-            new Ray(transform.position + (transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down)
+            new Ray(transform.position + (-transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + (transform.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + (transform.up * 0.01f), Vector3.down)
         };
 
         for (int i = 0; i < rays.Length; i++)
         {
-            if (Physics.Raycast(rays[i], 0.5f, groundLayerMask))
+            if (Physics.Raycast(rays[i], 0.2f, groundLayerMask))
             {
                 return true;
             }

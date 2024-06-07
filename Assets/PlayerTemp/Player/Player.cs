@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerController_tmp controller;
-    public PlayerCameraController cameraController;
+    public PlayerCameraController_tmp cameraController;
     public PlayerCondition condition;
     public Equipment equip;
 
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     {
         CharacterManager.Instance.Player = this;
         controller = GetComponent<PlayerController_tmp>();
-        cameraController = GetComponent<PlayerCameraController>();
+        cameraController = GetComponent<PlayerCameraController_tmp>();
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
     }

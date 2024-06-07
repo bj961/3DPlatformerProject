@@ -30,23 +30,23 @@ public class MovingObject : MonoBehaviour
         direction = (movePoint[1] - movePoint[0]);
     }
 
-    
+
 
     void FixedUpdate()
     {
-        //_rigidbody.MovePosition(Vector3.MoveTowards(_rigidbody.position, targetPosition, moveSpeed * Time.deltaTime));
+        _rigidbody.MovePosition(Vector3.MoveTowards(_rigidbody.position, targetPosition, moveSpeed * Time.deltaTime));
 
-        Movement(transform);
+        //Movement(transform);
 
-        //if (Vector3.Distance(_rigidbody.position, targetPosition) < 0.01f)
-        if (Vector3.Distance(platform.position, targetPosition) < 0.01f)
+        //if (Vector3.Distance(platform.position, targetPosition) < 0.01f)
+        if (Vector3.Distance(_rigidbody.position, targetPosition) < 0.01f)
         {
             directionSwap = !directionSwap;
             targetPosition = directionSwap ? movePoint[0] : movePoint[1];
             direction = directionSwap ? movePoint[1] - movePoint[0] : movePoint[0] - movePoint[1];
         }
 
-        
+
 
         //Movement(transform);
     }
@@ -57,8 +57,8 @@ public class MovingObject : MonoBehaviour
         //targetTransform.position = targetTransform.position + targetPosition.normalized * moveSpeed * Time.deltaTime;
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        Movement(collision.transform);
-    }
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    Movement(collision.transform);
+    //}
 }

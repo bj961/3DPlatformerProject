@@ -6,15 +6,15 @@ public class JumpingObject : MonoBehaviour
 {
     public float power;
 
-    void Start()
-    {
-        power = 150f;
-    }
+    //void Start()
+    //{
+        
+    //}
 
 
     private void OnCollisionEnter(Collision collision)
     {
-        Rigidbody _rigidbody = collision.collider.GetComponent<Rigidbody>();
+        Rigidbody _rigidbody = collision.collider.GetComponentInChildren<Rigidbody>();
 
         if (_rigidbody != null)
         {
