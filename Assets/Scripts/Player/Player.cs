@@ -23,4 +23,12 @@ public class Player : MonoBehaviour
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
     }
+
+    private void Start()
+    {
+        if (GameManager.Instance.player == null)
+        {
+            GameManager.Instance.player = this;
+        }
+    }
 }
