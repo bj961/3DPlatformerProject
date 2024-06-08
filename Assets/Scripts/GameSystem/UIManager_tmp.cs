@@ -26,17 +26,10 @@ public class UIManager_tmp : MonoBehaviour
             }
         }
 
-
         if (tmp_GameOverUI == null)
         {
-            Debug.Log("UI 생성");
             tmp_GameOverUI = Instantiate(tmp_GameOverUIPrefab);
-            if (tmp_GameOverUI == null)
-            {
-                Debug.Log("UI 연결 안됨");
-            }
         }
-
     }
 
     public void ActiveUI(GameState gameState)

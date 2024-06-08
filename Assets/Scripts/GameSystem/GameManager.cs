@@ -63,14 +63,6 @@ public class GameManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-
-    void Start()
-    {
-        if (controller == null)
-        {
-            controller = new GameObject("InGameController").AddComponent<InGameController>();
-        }
 
         switch (currentGameState)
         {
@@ -80,6 +72,18 @@ public class GameManager : MonoBehaviour
             case GameState.GameStart:
                 GameStartState();
                 break;
+            default:
+                currentGameState = GameState.GameStart;
+                GameStartState();
+                break;
+        }
+    }
+
+    void Start()
+    {
+        if (controller == null)
+        {
+            controller = new GameObject("InGameController").AddComponent<InGameController>();
         }
     }
 
