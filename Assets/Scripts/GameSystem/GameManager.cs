@@ -105,6 +105,8 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = GameState.GameOver;
 
+        Debug.Log("GameOver");
+
         // TODO : 
         // SoundManager.Instance.PlayBGM("GameOverBGM");
         // UIManager.Instance.ActiveUI("GameOverUI")
@@ -114,6 +116,8 @@ public class GameManager : MonoBehaviour
     public void GameClear()
     {
         currentGameState = GameState.GameClear;
+
+        Debug.Log("GameClear");
 
         // TODO : 
         // SoundManager.Instance.PlayBGM("GameClearBGM");
