@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c8fcb67cb3d648b4b87d500ece16b15f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967294
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c8fcb67cb3d648b4b87d500ece16b15f, type: 3}
       propertyPath: m_RootOrder
@@ -4070,9 +4070,6 @@ SceneRoots:
   - {fileID: 1392304507}
   - {fileID: 1394432823}
   - {fileID: 54243960}
-  - {fileID: 798171563}
-  - {fileID: 2122055173}
-  - {fileID: 2003332449}
   - {fileID: 1670492082}
   - {fileID: 1157080700}
   - {fileID: 1748438527}
@@ -4096,6 +4093,9 @@ SceneRoots:
   - {fileID: 1455813954}
   - {fileID: 154046618}
   - {fileID: 505143460}
+  - {fileID: 798171563}
+  - {fileID: 2122055173}
+  - {fileID: 2003332449}
   - {fileID: 790461147}
   - {fileID: 203455848}
   - {fileID: 343278202}
