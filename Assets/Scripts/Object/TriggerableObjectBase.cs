@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IActivatable
+public interface ITriggerable
 {
-    public void ActivateObject();
+    public void TriggerObject();
 }
 
-public abstract class ActivatableObjectBase : MonoBehaviour, IActivatable
+
+public abstract class ActivatableObjectBase : MonoBehaviour, ITriggerable
 {
     public bool isActive;
 
@@ -16,7 +17,7 @@ public abstract class ActivatableObjectBase : MonoBehaviour, IActivatable
         isActive = false;
     }
 
-    public void ActivateObject()
+    public void TriggerObject()
     {
         if(isActive == false) 
         {

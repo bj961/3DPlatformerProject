@@ -104,8 +104,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         currentGameState = GameState.GameOver;
-
+        player.controller.DisablePlayerInput();
         Debug.Log("GameOver");
+
+        //temp UI
+        UIManager_tmp.Instance.ActiveUI(GameState.GameOver);
+
 
         // TODO : 
         // SoundManager.Instance.PlayBGM("GameOverBGM");
@@ -126,6 +130,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -133,7 +138,8 @@ public class GameManager : MonoBehaviour
     {
         // TODO : 이름 대신 buildindex로 바꾸기
         currentGameState = GameState.Intro;
-        SceneManager.LoadScene("IntroScene");
+        //SceneManager.LoadScene("IntroScene");
+        Debug.Log("IntroScene!!");
     }
 
     public void StageSelect(GameStage newStage)
@@ -154,7 +160,8 @@ public class GameManager : MonoBehaviour
         // 스테이지 개수 증가 시 아래 코드로 변경
         currentGameState = GameState.GameStart;
         currentStage = GameStage.Stage2;
-        SceneManager.LoadScene("Stage2");
+        //SceneManager.LoadScene("Stage2");
+        Debug.Log("Stage2!!");
 
         // TODO : 스테이지 여러개일 경우 코드.
         //int currentIndex = (int)currentStage;

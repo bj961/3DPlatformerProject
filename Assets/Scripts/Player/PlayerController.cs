@@ -48,7 +48,9 @@ public class PlayerController : MonoBehaviour
 
     public Action inventory;
     private Rigidbody _rigidbody;
+    public PlayerInput playerInput;
     public Animator animator;
+
 
     bool isJumping = false;
 
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
         cameraContainer = transform.Find("CameraContainer").GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     void Start()
@@ -232,6 +235,13 @@ public class PlayerController : MonoBehaviour
         isGrounded = false;
     }
 
+    public void DisablePlayerInput()
+    {
+        Cursor.visible = true;
+        ToggleCursor();
+        playerInput.enabled = false;
+    }
+
     //private void StateHandler()
     //{
     //    //if (state == MovementState.crouching)
@@ -282,10 +292,10 @@ public class PlayerController : MonoBehaviour
     //    }
     //}
 
-    //void ToggleCursor()
-    //{
-    //    bool toggle = Cursor.lockState == CursorLockMode.Locked;
-    //    Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-    //    canLook = !toggle;
-    //}
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        canLook = !toggle;
+    }
 }
