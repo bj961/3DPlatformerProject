@@ -9,7 +9,7 @@ public abstract class SwitchObjectBase : MonoBehaviour
 {
     //public Transform targetObject;
     //protected ITriggerable target;
-    protected bool isSwitchOn;
+    [SerializeField] protected bool isSwitchOn;
 
     protected void Start()
     {

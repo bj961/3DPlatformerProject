@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class Door1 : DoorBase
+public class DoorA : DoorBase
 {
     [SerializeField]
     Transform door;
 
+    [SerializeField]
     private bool isActivating;
-    Vector3 targetPosition;
-    Vector3 closeLocalPosition = Vector3.zero;
+    [SerializeField]
     Vector3 openLocalPosition = new Vector3(0, 5f, 0);
+    [SerializeField]
+    Vector3 closeLocalPosition = Vector3.zero;
+    Vector3 targetPosition;
 
     private void Start()
     {
@@ -25,6 +28,7 @@ public class Door1 : DoorBase
             if(door.localPosition == targetPosition)
             {
                 isActivating = false;
+                isOpened = !isOpened;
             }
         }
 
