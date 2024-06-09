@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Player : MonoBehaviour
     public PlayerCameraController cameraController;
     public PlayerCondition condition;
     public Equipment equip;
+    
+
 
     public ItemData itemData;
     public Action addItem;
@@ -22,5 +25,14 @@ public class Player : MonoBehaviour
         cameraController = GetComponent<PlayerCameraController>();
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
+        
+    }
+
+    private void Start()
+    {
+        if (GameManager.Instance.player == null)
+        {
+            GameManager.Instance.player = this;
+        }
     }
 }
