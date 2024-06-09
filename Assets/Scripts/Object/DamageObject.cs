@@ -9,7 +9,7 @@ public class DamageObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // TODO : 게임오버
-            //GameManager.Instance.GameOver();
+            GameManager.Instance.GameOver();
             // 캐릭터 사망 효과
 
         }
