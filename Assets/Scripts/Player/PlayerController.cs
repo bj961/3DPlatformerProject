@@ -48,7 +48,9 @@ public class PlayerController : MonoBehaviour
 
     public Action inventory;
     private Rigidbody _rigidbody;
+    public PlayerInput playerInput;
     public Animator animator;
+
 
     bool isJumping = false;
 
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
         cameraContainer = transform.Find("CameraContainer").GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     void Start()
@@ -146,7 +149,7 @@ public class PlayerController : MonoBehaviour
         camCurXRot += mouseDelta.y * lookSensivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook); // Clamp() : 최소값보다 작아지면 최대값 반환, 최대값보다 커지면 최소값 반환
 
-        Debug.Log("mouseDelta : " + mouseDelta + "\ncamCurXRot : " + camCurXRot);
+        //Debug.Log("mouseDelta : " + mouseDelta + "\ncamCurXRot : " + camCurXRot);
 
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0); // - 붙여준 이유 : 마우스 이동과 회전이 반대라서 그럼 (실제 로테이션 값 바꿔봐라)
 
@@ -232,6 +235,13 @@ public class PlayerController : MonoBehaviour
         isGrounded = false;
     }
 
+    public void DisablePlayerInput()
+    {
+        Cursor.visible = true;
+        ToggleCursor();
+        playerInput.enabled = false;
+    }
+
     //private void StateHandler()
     //{
     //    //if (state == MovementState.crouching)
@@ -282,10 +292,10 @@ public class PlayerController : MonoBehaviour
     //    }
     //}
 
-    //void ToggleCursor()
-    //{
-    //    bool toggle = Cursor.lockState == CursorLockMode.Locked;
-    //    Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-    //    canLook = !toggle;
-    //}
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        canLook = !toggle;
+    }
 }
