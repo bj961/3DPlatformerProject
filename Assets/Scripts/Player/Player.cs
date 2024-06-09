@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
         cameraController = GetComponent<PlayerCameraController>();
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
-        
     }
 
     private void Start()

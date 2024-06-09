@@ -32,8 +32,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public InGameController controller;
-
     public GameState currentGameState { get; private set; }
     public GameStage currentStage { get; private set; }
     public void SetStage(GameStage newStage)
@@ -43,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     public Player player;
 
+    public InGameController controller;
 
     private void Awake()
     {

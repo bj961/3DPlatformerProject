@@ -18,7 +18,7 @@ public class JumpingObject : MonoBehaviour
 
         if (_rigidbody != null)
         {
-            Debug.Log("Jumpimg Object Collision");
+            //Debug.Log("Jumpimg Object Collision");
             Vector3 force = transform.up * power;
             _rigidbody.AddForce(force, ForceMode.Impulse);
         }
