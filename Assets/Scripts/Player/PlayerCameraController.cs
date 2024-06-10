@@ -25,13 +25,14 @@ public class PlayerCameraController : MonoBehaviour
     Vector3 TPSView = new Vector3(0, -2f, 5f);
 
     [SerializeField] private float cameraTurnSpeed = 15f;
-    
+
 
     void Start()
     {
         cameraMode = CameraMode.FirstPersonView;
         cameraPosition = FPSView;
-        crossHair = UIManager.Instance.InGameUI.transform.Find("CrossHair").gameObject;
+        if (crossHair == null)
+            crossHair = UIManager.Instance.InGameUI.transform.Find("CrossHair").gameObject;
     }
 
 
@@ -45,7 +46,7 @@ public class PlayerCameraController : MonoBehaviour
     {
         Vector3 Distance = cameraPosition;
         _camera.transform.position = transform.position - _camera.gameObject.transform.rotation * cameraPosition;// Distance;
-        
+
     }
 
     void CameraChange()
@@ -80,6 +81,6 @@ public class PlayerCameraController : MonoBehaviour
             }
             CameraChange();
         }
-        
+
     }
 }

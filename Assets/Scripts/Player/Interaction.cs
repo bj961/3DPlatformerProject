@@ -33,7 +33,8 @@ public class Interaction : MonoBehaviour
     void Start()
     {
         camera = Camera.main;
-        promptText = UIManager.Instance.InGameUI.transform.Find("PromptText").GetComponent<TextMeshProUGUI>();
+        if (promptText == null)
+            promptText = UIManager.Instance.InGameUI.transform.Find("PromptText").GetComponent<TextMeshProUGUI>();
     }
 
 
