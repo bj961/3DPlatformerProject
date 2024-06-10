@@ -8,7 +8,7 @@ public class ClearPortal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            UIManager.Instance.ActiveUI(GameState.GameClear);
+            GameManager.Instance.GameClear();
         }
     }
 }
