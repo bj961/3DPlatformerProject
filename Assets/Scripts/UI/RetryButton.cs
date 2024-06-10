@@ -7,7 +7,6 @@ public class RetryButton : MonoBehaviour
 {
     private Button button;
 
-    // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();

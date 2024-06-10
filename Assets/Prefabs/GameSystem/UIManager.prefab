@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 213025704917719667}
   - component: {fileID: 544936975202027482}
   m_Layer: 0
-  m_Name: UIManager_tmp
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,8 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5158797534298737320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f396bae7015b5d43bafa0291e17fa10, type: 3}
+  m_Script: {fileID: 11500000, guid: 20241fbcc1acf5e4fb869ad3fa07a552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmp_GameOverUIPrefab: {fileID: 1277287246279812077, guid: 59d0b16ce6a694f4ea022e567661832a, type: 3}
-  tmp_GameOverUI: {fileID: 0}
+  GameOverUIPrefab: {fileID: 3990323465178800059, guid: ab4339c8fe68e76458ff6523561fb565, type: 3}
+  GameOverUI: {fileID: 0}
+  GameClearUIPrefab: {fileID: 5096431032899616869, guid: c18a883e1a3b98d45afe1b4631d460c7, type: 3}
+  GameClearUI: {fileID: 0}
+  StartSceneUIPrefab: {fileID: 5377092463830196947, guid: 68aa318e1a7c4d14db72a510bd06f97f, type: 3}
+  StartSceneUI: {fileID: 0}

@@ -30,6 +30,7 @@ public class Monster : MonoBehaviour
         // 처음 생성될 때 사운드 파일 1 재생
         monsterSound.PlayInitialSound();
         hasPlayedInitialSound = true;
+        SetTarget();
         StartCoroutine(PlayChaseSoundWithDelay(5f)); // 5초 딜레이 후 추적 사운드 재생
     }
 
@@ -41,31 +42,35 @@ public class Monster : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player != null)
+        // TODO : GameState.GameStart에서만 동작하도록 수정
+        if (GameManager.Instance.currentGameState == GameState.GameStart)
         {
-            agent.SetDestination(player.position);  // 플레이어의 위치를 목적지로 설정
-            animator.SetBool("isMoving", true);
-
-            if (!isMoving)
+            if (player != null)
             {
-                isMoving = true;
-                if (hasPlayedInitialSound)
+                agent.SetDestination(player.position);  // 플레이어의 위치를 목적지로 설정
+                animator.SetBool("isMoving", true);
+
+                if (!isMoving)
                 {
-                    monsterSound.PlayRandomChaseSound(); // 추적 소리 재생
+                    isMoving = true;
+                    if (hasPlayedInitialSound)
+                    {
+                        monsterSound.PlayRandomChaseSound(); // 추적 소리 재생
+                    }
                 }
             }
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-
-            if (isMoving)
+            else
             {
-                isMoving = false;
-                monsterSound.StopSound(); // 이동 소리 중지
-            }
+                animator.SetBool("isMoving", false);
 
-            SetTarget();
+                if (isMoving)
+                {
+                    isMoving = false;
+                    monsterSound.StopSound(); // 이동 소리 중지
+                }
+
+                SetTarget();
+            }
         }
     }
 
@@ -74,6 +79,11 @@ public class Monster : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))  // 충돌 오브젝트 태그 확인
         {
             //SceneManager.LoadScene("Test_uk");  // Scene 재시작
+
+            if (GameManager.Instance.currentGameState == GameState.GameStart)
+            {
+                GameManager.Instance.GameOver();
+            }
             Debug.Log("몬스터-플레이어 충돌");
         }
     }

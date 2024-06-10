@@ -103,15 +103,24 @@ public class GameManager : MonoBehaviour
         // SoundManager.Instance.PlayBGM("InGameBGM");
     }
 
+    public void GameStart()
+    {
+        currentGameState = GameState.GameStart;
+        // TODO : 추후 Demo_Scene -> 씬 build index로 수정
+        SceneManager.LoadScene("Demo_Scene");
+    }
+
     // State : 게임 오버
     public void GameOver()
     {
         currentGameState = GameState.GameOver;
         player.controller.DisablePlayerInput();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         Debug.Log("GameOver");
 
         //temp UI
-        UIManager_tmp.Instance.ActiveUI(GameState.GameOver);
+        UIManager.Instance.ActiveUI(GameState.GameOver);
 
 
         // TODO : 
@@ -141,7 +150,7 @@ public class GameManager : MonoBehaviour
     {
         // TODO : 이름 대신 buildindex로 바꾸기
         currentGameState = GameState.Intro;
-        //SceneManager.LoadScene("IntroScene");
+        SceneManager.LoadScene("IntroScene");
         Debug.Log("IntroScene!!");
     }
 
