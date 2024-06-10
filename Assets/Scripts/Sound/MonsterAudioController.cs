@@ -13,26 +13,30 @@ public class MonsterAudioController : MonoBehaviour
         {
             monsterAudioSource = GetComponent<AudioSource>();
         }
+        playerTransform = GameManager.Instance.player.gameObject.transform;
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(playerTransform.position, transform.position);
+        if (playerTransform != null)
+        {
+            float distanceToPlayer = Vector3.Distance(playerTransform.position, transform.position);
 
-        if (distanceToPlayer <= maxDistance)
-        {
-            if (!monsterAudioSource.isPlaying)
+            if (distanceToPlayer <= maxDistance)
             {
-                monsterAudioSource.Play();
+                if (!monsterAudioSource.isPlaying)
+                {
+                    monsterAudioSource.Play();
+                }
+                float volume = Mathf.Lerp(1.0f, 0.0f, (distanceToPlayer - minDistance) / (maxDistance - minDistance));
+                monsterAudioSource.volume = volume;
             }
-            float volume = Mathf.Lerp(1.0f, 0.0f, (distanceToPlayer - minDistance) / (maxDistance - minDistance));
-            monsterAudioSource.volume = volume;
-        }
-        else
-        {
-            if (monsterAudioSource.isPlaying)
+            else
             {
-                monsterAudioSource.Stop();
+                if (monsterAudioSource.isPlaying)
+                {
+                    monsterAudioSource.Stop();
+                }
             }
         }
     }
