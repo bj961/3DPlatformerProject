@@ -32,7 +32,6 @@ public class DoorB : DoorBase
             if (door.localRotation == targetRotation)
             {
                 isActivating = false;
-                isOpened = !isOpened;
             }
         }
     }
@@ -51,26 +50,4 @@ public class DoorB : DoorBase
         isOpened = !isOpened;
         PlaySound();
     }
-
-    public override void Open()
-    {
-        targetRotation = openRotation;
-        isActivating = true;
-        PlaySound(); // 家府 犁积
-    }
-
-    public override void Close()
-    {
-        targetRotation = closeRotation;
-        isActivating = true;
-        PlaySound(); // 家府 犁积
-    }
-
-    //private void PlaySound()
-    //{
-    //    if (audioSource != null && !audioSource.isPlaying)
-    //    {
-    //        audioSource.Play();
-    //    }
-    //}
 }

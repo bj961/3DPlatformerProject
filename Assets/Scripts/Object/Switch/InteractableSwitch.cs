@@ -17,7 +17,7 @@ public class InteractableSwitch : SwitchObjectBase, IInteractable
             targets.Add(targetObject.GetComponent<ITriggerable>());
         }
 
-        //gameObject.layer = LayerMask.NameToLayer("Interactable");
+        gameObject.layer = LayerMask.NameToLayer("Interactable");
 
         TryGetComponent<Animator>(out animator);
     }

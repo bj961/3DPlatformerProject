@@ -47,16 +47,4 @@ public class DoorA : DoorBase
         isOpened = !isOpened;
         PlaySound();
     }
-
-    public override void Open()
-    {
-        targetPosition = openLocalPosition;
-        isActivating = true;
-    }
-
-    public override void Close()
-    {
-        targetPosition = closeLocalPosition;
-        isActivating = true;
-    }
 }

@@ -10,6 +10,6 @@ public class InGameUI : MonoBehaviour
         {
             UIManager.Instance.InGameUI = gameObject;
         }
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }

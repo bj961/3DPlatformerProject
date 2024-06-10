@@ -16,16 +16,6 @@ public abstract class DoorBase : MonoBehaviour, ITriggerable
     }
 
     public abstract void Trigger();
-    //{
-    //    if(isOpened == false) 
-    //    {
-    //        Open();
-    //    }
-    //    else
-    //    {
-    //        Close();
-    //    }
-    //}
 
     protected void PlaySound()
     {
@@ -34,7 +24,4 @@ public abstract class DoorBase : MonoBehaviour, ITriggerable
             audioSource.Play();
         }
     }
-
-    public abstract void Open();
-    public abstract void Close();
 }
