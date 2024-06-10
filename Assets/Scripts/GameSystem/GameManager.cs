@@ -65,17 +65,14 @@ public class GameManager : MonoBehaviour
     // State : 시작화면
     public void IntroState()
     {
-        Debug.Log("IntroScene!!");
         currentGameState = GameState.Intro;
         SceneManager.LoadScene(0);
-        // SoundManager.Instance.PlayBGM("IntroBGM");
     }
 
     // State : 게임 시작
     public void GameStartState()
     {
-        // TODO : 
-        // SoundManager.Instance.PlayBGM("InGameBGM");
+        // TODO : 필요시 구현
     }
 
     public void GameStart()
@@ -87,41 +84,24 @@ public class GameManager : MonoBehaviour
     // State : 게임 오버
     public void GameOver()
     {
-        Debug.Log("GameOver");
         currentGameState = GameState.GameOver;
         player.controller.DisablePlayerInput();
         UIManager.Instance.ActiveUI(GameState.GameOver);
 
-        // TODO : 
-        // SoundManager.Instance.PlayBGM("GameOverBGM");
     }
 
     // State : 게임 클리어
     public void GameClear()
     {
-        Debug.Log("GameClear");
         currentGameState = GameState.GameClear;
         player.controller.DisablePlayerInput();
         UIManager.Instance.ActiveUI(GameState.GameClear);
-
-        // TODO : 
-        // SoundManager.Instance.PlayBGM("GameClearBGM");
-
     }
 
     public void Restart()
     {
-        Debug.Log("Restart");
         currentGameState = GameState.GameStart;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void ToIntroScene()
-    {
-        // TODO : 이름 대신 buildindex로 바꾸기
-        currentGameState = GameState.Intro;
-        SceneManager.LoadScene(0);
-        Debug.Log("IntroScene!!");
     }
 
     /* 
