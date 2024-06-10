@@ -60,20 +60,6 @@ public class GameManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
-        //switch (currentGameState)
-        //{
-        //    case GameState.Intro:
-        //        IntroState();
-        //        break;
-        //    case GameState.GameStart:
-        //        GameStartState();
-        //        break;
-        //    default:
-        //        currentGameState = GameState.GameStart;
-        //        GameStartState();
-        //        break;
-        //}
     }
 
     // State : 시작화면

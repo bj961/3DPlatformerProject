@@ -84,7 +84,6 @@ public class Monster : MonoBehaviour
             {
                 GameManager.Instance.GameOver();
             }
-            Debug.Log("몬스터-플레이어 충돌");
         }
     }
 
