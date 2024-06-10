@@ -115,34 +115,32 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = GameState.GameOver;
         player.controller.DisablePlayerInput();
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
         Debug.Log("GameOver");
 
-        //temp UI
         UIManager.Instance.ActiveUI(GameState.GameOver);
-
 
         // TODO : 
         // SoundManager.Instance.PlayBGM("GameOverBGM");
-        // UIManager.Instance.ActiveUI("GameOverUI")
     }
 
     // State : 게임 클리어
     public void GameClear()
     {
         currentGameState = GameState.GameClear;
-
+        player.controller.DisablePlayerInput();
         Debug.Log("GameClear");
 
         // TODO : 
         // SoundManager.Instance.PlayBGM("GameClearBGM");
-        // UIManager.Instance.ActiveUI("GameClearUI")
+        UIManager.Instance.ActiveUI(GameState.GameClear);
     }
 
     public void Restart()
     {
         Debug.Log("Restart");
+        currentGameState = GameState.GameStart;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
