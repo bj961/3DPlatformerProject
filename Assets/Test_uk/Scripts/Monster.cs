@@ -1,4 +1,5 @@
 using Unity.Services.Analytics.Internal;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -10,17 +11,26 @@ public class Monster : MonoBehaviour
 
     public float monsterSpeed;  // 몬스터 속도 변수
 
+    private Animator animator;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();  // NavMeshAgent 컴포넌트를 가져옴
         agent.speed = monsterSpeed;     // 몬스터 기본 속도 적용
+        animator = GetComponent<Animator>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (player != null)
+        if(player != null)
         {
             agent.SetDestination(player.position);  // 플레이어의 위치를 목적지로 설정
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", true);
+            SetTarget();
         }
     }
 
@@ -29,6 +39,12 @@ public class Monster : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))  // 충돌 오브젝트 태그 확인
         {
             SceneManager.LoadScene("Test_uk");  // Scene 재시작
+            Debug.Log("몬스터-플레이어 충돌");
         }
+    }
+
+    public void SetTarget()
+    {
+        GameManager.Instance.player.gameObject.TryGetComponent<Transform>(out player);
     }
 }

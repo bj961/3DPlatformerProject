@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed && isGrounded)
         {
-            Debug.Log("Sprinting");
+            //Debug.Log("Sprinting");
             //state = MovementState.sprinting;
             animator.SetBool("isRunning", true);
             moveSpeed = sprintSpeed;
