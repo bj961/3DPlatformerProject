@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GameOverUI : MonoBehaviour
+public class GameClearUI : MonoBehaviour
 {
     void Start()
     {
-        if (UIManager.Instance.GameOverUI == null)
+        if (UIManager.Instance.GameClearUI == null)
         {
-            UIManager.Instance.GameOverUI = gameObject;
+            UIManager.Instance.GameClearUI = gameObject;
         }
         gameObject.SetActive(false);
     }
