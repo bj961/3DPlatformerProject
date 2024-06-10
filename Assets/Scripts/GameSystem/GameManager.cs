@@ -113,12 +113,9 @@ public class GameManager : MonoBehaviour
     // State : 게임 오버
     public void GameOver()
     {
+        Debug.Log("GameOver");
         currentGameState = GameState.GameOver;
         player.controller.DisablePlayerInput();
-        //Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.None;
-        Debug.Log("GameOver");
-
         UIManager.Instance.ActiveUI(GameState.GameOver);
 
         // TODO : 
@@ -128,13 +125,14 @@ public class GameManager : MonoBehaviour
     // State : 게임 클리어
     public void GameClear()
     {
+        Debug.Log("GameClear");
         currentGameState = GameState.GameClear;
         player.controller.DisablePlayerInput();
-        Debug.Log("GameClear");
+        UIManager.Instance.ActiveUI(GameState.GameClear);
 
         // TODO : 
         // SoundManager.Instance.PlayBGM("GameClearBGM");
-        UIManager.Instance.ActiveUI(GameState.GameClear);
+
     }
 
     public void Restart()
