@@ -10,6 +10,6 @@ public class IntroButton : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(GameManager.Instance.ToIntroScene);
+        button.onClick.AddListener(GameManager.Instance.IntroState);
     }
 }
