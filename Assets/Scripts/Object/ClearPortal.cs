@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ClearPortal : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             UIManager.Instance.ActiveUI(GameState.GameClear);
         }
