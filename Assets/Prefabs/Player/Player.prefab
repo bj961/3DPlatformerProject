@@ -2163,7 +2163,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2990,7 +2990,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2955614757178289062}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1eadd343af1046240a9d07f7413a5ff1, type: 3}
   m_Name: 
@@ -2999,7 +2999,7 @@ MonoBehaviour:
   maxCheckDistance: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   curInteractGameObject: {fileID: 0}
   promptText: {fileID: 0}
 --- !u!114 &5924603691721020105
@@ -3032,7 +3032,7 @@ MonoBehaviour:
   cameraMode: 0
   firstPersonLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 439
   thirdPersonLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295

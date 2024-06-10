@@ -28,10 +28,24 @@ public class DoorA : DoorBase
             if(door.localPosition == targetPosition)
             {
                 isActivating = false;
-                isOpened = !isOpened;
             }
         }
 
+    }
+
+    public override void Trigger()
+    {
+        isActivating = true;
+        if (isOpened) 
+        {
+            targetPosition = closeLocalPosition;
+        }
+        else
+        {
+            targetPosition = openLocalPosition;
+        }
+        isOpened = !isOpened;
+        PlaySound();
     }
 
     public override void Open()

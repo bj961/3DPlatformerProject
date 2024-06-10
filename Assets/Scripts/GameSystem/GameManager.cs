@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
         if(currentGameState == GameState.GameStart)
         {
-            //GameStartState();
+            GameStartState();
         }
     }
 
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     // State : 게임 시작
     public void GameStartState()
     {
+        currentGameState = GameState.GameStart;
         UIManager.Instance.ActiveUI(GameState.GameStart);
     }
 

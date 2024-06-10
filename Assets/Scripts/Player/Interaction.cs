@@ -29,12 +29,14 @@ public class Interaction : MonoBehaviour
     void Start()
     {
         camera = Camera.main;
+
+        promptText = UIManager.Instance.InGameUI.transform.Find("PromptText").GetComponent<TextMeshProUGUI>();
     }
 
 
     void Update()
     {
-        if(Time.time - lastCheckTime > checkRate)
+        if (Time.time - lastCheckTime > checkRate)
         {
             lastCheckTime = Time.time;
 
@@ -56,18 +58,18 @@ public class Interaction : MonoBehaviour
                 curInteractable = null;
                 //promptText.gameObject.SetActive(false);
             }
-        }  
+        }
     }
 
     private void SetPromptText()
     {
-        //promptText.gameObject.SetActive(true);
-        //promptText.text = curInteractable.GetInteractPrompt();
+        promptText.gameObject.SetActive(true);
+        promptText.text = curInteractable.GetInteractPrompt();
     }
 
     public void OnInteractInput(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Started && curInteractable != null)
+        if (context.phase == InputActionPhase.Started && curInteractable != null)
         {
             curInteractable.OnInteract();
             curInteractGameObject = null;

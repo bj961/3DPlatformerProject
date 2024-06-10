@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class DoorB : DoorBase
@@ -13,8 +14,8 @@ public class DoorB : DoorBase
     private Quaternion openRotation = Quaternion.Euler(0f, 90f, 0f);
     private Quaternion targetRotation;
 
-    [SerializeField]
-    private AudioSource audioSource; // AudioSource 컴포넌트 참조
+    //[SerializeField]
+    //private AudioSource audioSource; // AudioSource 컴포넌트 참조
 
     private void Start()
     {
@@ -36,6 +37,21 @@ public class DoorB : DoorBase
         }
     }
 
+    public override void Trigger()
+    {
+        isActivating = true;
+        if (isOpened)
+        {
+            targetRotation = closeRotation;
+        }
+        else
+        {
+            targetRotation = openRotation;
+        }
+        isOpened = !isOpened;
+        PlaySound();
+    }
+
     public override void Open()
     {
         targetRotation = openRotation;
@@ -50,11 +66,11 @@ public class DoorB : DoorBase
         PlaySound(); // 소리 재생
     }
 
-    private void PlaySound()
-    {
-        if (audioSource != null && !audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
-    }
+    //private void PlaySound()
+    //{
+    //    if (audioSource != null && !audioSource.isPlaying)
+    //    {
+    //        audioSource.Play();
+    //    }
+    //}
 }
