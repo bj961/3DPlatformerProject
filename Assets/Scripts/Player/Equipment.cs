@@ -9,14 +9,14 @@ public class Equipment : MonoBehaviour
     public Transform equipParent;
 
     private PlayerController controller;
-    private PlayerCondition condition;
+    //private PlayerCondition condition;
 
     // Start is called before the first frame update
     void Start()
     {
         //equipParent = transform.Find("EquipCamera").GetComponent<Transform>();
         controller = GetComponent<PlayerController>();
-        condition = GetComponent<PlayerCondition>();
+        //condition = GetComponent<PlayerCondition>();
     }
 
     public void EquipNew(ItemData data)

@@ -41,8 +41,6 @@ public class GameManager : MonoBehaviour
 
     public Player player;
 
-    public InGameController controller;
-
     private void Awake()
     {
         if (_Instance == null)
@@ -78,14 +76,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        if (controller == null)
-        {
-            controller = new GameObject("InGameController").AddComponent<InGameController>();
-        }
-    }
-
     // State : 시작화면
     public void IntroState()
     {
@@ -113,36 +103,32 @@ public class GameManager : MonoBehaviour
     // State : 게임 오버
     public void GameOver()
     {
+        Debug.Log("GameOver");
         currentGameState = GameState.GameOver;
         player.controller.DisablePlayerInput();
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        Debug.Log("GameOver");
-
-        //temp UI
         UIManager.Instance.ActiveUI(GameState.GameOver);
-
 
         // TODO : 
         // SoundManager.Instance.PlayBGM("GameOverBGM");
-        // UIManager.Instance.ActiveUI("GameOverUI")
     }
 
     // State : 게임 클리어
     public void GameClear()
     {
-        currentGameState = GameState.GameClear;
-
         Debug.Log("GameClear");
+        currentGameState = GameState.GameClear;
+        player.controller.DisablePlayerInput();
+        UIManager.Instance.ActiveUI(GameState.GameClear);
 
         // TODO : 
         // SoundManager.Instance.PlayBGM("GameClearBGM");
-        // UIManager.Instance.ActiveUI("GameClearUI")
+
     }
 
     public void Restart()
     {
         Debug.Log("Restart");
+        currentGameState = GameState.GameStart;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -154,22 +140,25 @@ public class GameManager : MonoBehaviour
         Debug.Log("IntroScene!!");
     }
 
+    /* 
+     * TODO :
+     * 스테이지 1개로 바뀌었으므로 아래 코드들 미사용
+     * 추후 리팩토링하여 스테이지 추가로 만들 경우 사용예정
+     */
+            
     public void StageSelect(GameStage newStage)
     {
         currentStage = newStage;
         currentGameState = GameState.GameStart;
 
-
         //int buildIndexOfStage1 = ??;  //추후 씬 구성 시 buildIndex 넣기)
         //int newStageIndex = buildIndexOfStage1 + (int)currentStage;
         //SceneManager.LoadScene(newStageIndex);
-
     }
 
     public void NextStage()
     {
-        // TODO : 현재 스테이지 개수 2개 이므로 간단히 작성한 코드.
-        // 스테이지 개수 증가 시 아래 코드로 변경
+        // TODO : 스테이지 개수 증가 시 아래 코드로 변경
         currentGameState = GameState.GameStart;
         currentStage = GameStage.Stage2;
         //SceneManager.LoadScene("Stage2");
