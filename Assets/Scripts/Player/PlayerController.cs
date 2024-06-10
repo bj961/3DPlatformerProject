@@ -51,6 +51,9 @@ public class PlayerController : MonoBehaviour
     public PlayerInput playerInput;
     public Animator animator;
 
+    public AudioClip footstepSound; // 발걸음 소리 파일
+    private AudioSource audioSource; // AudioSource 컴포넌트
+
 
     bool isJumping = false;
 
@@ -61,6 +64,8 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
+        audioSource = GetComponent<AudioSource>();  // AudioSource 컴포넌트 설정
+        audioSource.clip = footstepSound; // 발걸음 소리 파일 할당
     }
 
     void Start()
@@ -112,6 +117,12 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.velocity = direction;
             beforeDirection = direction;
+
+            // 발걸음 소리 재생
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
         else
         {
@@ -119,6 +130,12 @@ public class PlayerController : MonoBehaviour
             {
                 _rigidbody.velocity = direction;
                 beforeDirection = direction;
+
+                // 발걸음 소리 중지
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
             }
         }
     }
