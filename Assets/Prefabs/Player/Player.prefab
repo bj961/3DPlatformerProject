@@ -2676,7 +2676,6 @@ GameObject:
   - component: {fileID: 5375737538363790934}
   - component: {fileID: 1894729793773010633}
   - component: {fileID: 8544810551541539278}
-  - component: {fileID: 6654994279845441917}
   - component: {fileID: 7829242679244711991}
   - component: {fileID: 5924603691721020105}
   - component: {fileID: 4321752931565228284}
@@ -2947,7 +2946,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   cameraController: {fileID: 0}
-  condition: {fileID: 0}
   equip: {fileID: 0}
   itemData: {fileID: 0}
   dropPosition: {fileID: 0}
@@ -2985,19 +2983,6 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   animator: {fileID: 0}
   footstepSound: {fileID: 8300000, guid: aa6430dc92a010541b66a0b86cd9815d, type: 3}
---- !u!114 &6654994279845441917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2955614757178289062}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e08410e8a94ac746a566bd90f3877bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiCondition: {fileID: 0}
 --- !u!114 &7829242679244711991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3045,6 +3030,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 1162498093050980702}
   cameraMode: 0
+  firstPersonLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  thirdPersonLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   cameraTurnSpeed: 15
 --- !u!82 &8151841051262432630
 AudioSource:
