@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+// 물리적으로 충돌으로 작동되는 스위치
 public class PhysicalSwitch : SwitchObjectBase
 {
     public List<Transform> targetObjects;
@@ -15,7 +16,7 @@ public class PhysicalSwitch : SwitchObjectBase
         }  
     }
 
-    // 물리적으로 누르면 작동되는 스위치
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (isSwitchOn == false)
