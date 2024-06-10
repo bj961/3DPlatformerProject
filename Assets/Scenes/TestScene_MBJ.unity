@@ -4517,6 +4517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSwitchOn: 0
   targetObjects: []
+  disappearTime: 0
 --- !u!1001 &2064862905
 PrefabInstance:
   m_ObjectHideFlags: 0

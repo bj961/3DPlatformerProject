@@ -7,16 +7,15 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
 
-    // TODO : 추후 각 씬별 UI들 Dictionary 사용하여 관리토록 리팩토링
+    // TODO : 추후 Dictionary 사용하여 관리토록 리팩토링
     public GameObject GameOverUIPrefab;
     public GameObject GameOverUI;
 
     public GameObject GameClearUIPrefab;
     public GameObject GameClearUI;
 
-    //미사용
-    public GameObject StartSceneUIPrefab;
-    public GameObject StartSceneUI;
+    public GameObject InGameUIPrefab;
+    public GameObject InGameUI;
 
 
     private void Awake()
@@ -42,6 +41,10 @@ public class UIManager : MonoBehaviour
         {
             GameClearUI = Instantiate(GameClearUIPrefab);
         }
+        if (InGameUI == null)
+        {
+            InGameUI = Instantiate(InGameUIPrefab);
+        }
     }
 
     public void ActiveUI(GameState gameState)
@@ -53,7 +56,7 @@ public class UIManager : MonoBehaviour
                 Debug.Log("인트로씬 UI");
                 break;
             case GameState.GameStart:
-                //StartSceneUI.SetActive(true);
+                InGameUI.SetActive(true);
                 break;
             case GameState.GameOver:
                 GameOverUI.SetActive(true);

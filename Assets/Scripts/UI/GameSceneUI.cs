@@ -6,9 +6,9 @@ public class GameSceneUI : MonoBehaviour
 {
     void Start()
     {
-        if(UIManager.Instance.StartSceneUI == null)
+        if(UIManager.Instance.InGameUI == null)
         {
-            UIManager.Instance.StartSceneUI = gameObject;
+            UIManager.Instance.InGameUI = gameObject;
         }
         gameObject.SetActive(false);
     }

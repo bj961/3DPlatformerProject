@@ -4,6 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public interface IInteractable
+{
+    public string GetInteractPrompt();
+    public void OnInteract();
+}
+
 public class Interaction : MonoBehaviour
 {
     public float checkRate = 0.05f;
