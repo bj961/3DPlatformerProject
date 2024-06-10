@@ -13,6 +13,9 @@ public class DoorB : DoorBase
     private Quaternion openRotation = Quaternion.Euler(0f, 90f, 0f);
     private Quaternion targetRotation;
 
+    [SerializeField]
+    private AudioSource audioSource; // AudioSource 컴포넌트 참조
+
     private void Start()
     {
         isActivating = false;
@@ -31,18 +34,27 @@ public class DoorB : DoorBase
                 isOpened = !isOpened;
             }
         }
-
     }
 
     public override void Open()
     {
         targetRotation = openRotation;
         isActivating = true;
+        PlaySound(); // 소리 재생
     }
 
     public override void Close()
     {
         targetRotation = closeRotation;
         isActivating = true;
+        PlaySound(); // 소리 재생
+    }
+
+    private void PlaySound()
+    {
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
     }
 }
