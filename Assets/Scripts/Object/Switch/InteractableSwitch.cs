@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class InteractableSwitch : SwitchObjectBase, IInteractable
 {
-    public List<Transform> targetObjects;
-    private List<ITriggerable> targets = new List<ITriggerable>();
-
-    Animator animator;
-
     protected void Start()
     {
         base.Start();
-        foreach (var targetObject in targetObjects)
-        {
-            targets.Add(targetObject.GetComponent<ITriggerable>());
-        }
 
-        gameObject.layer = LayerMask.NameToLayer("Interactable");
-
-        TryGetComponent<Animator>(out animator);
+        gameObject.layer = LayerMask.NameToLayer("Interactable"); 
     }
 
     public string GetInteractPrompt()
