@@ -29,10 +29,10 @@ public class PlayerCameraController : MonoBehaviour
 
     void Start()
     {
-        cameraMode = CameraMode.FirstPersonView;
-        cameraPosition = FPSView;
         if (crossHair == null)
             crossHair = UIManager.Instance.InGameUI.transform.Find("CrossHair").gameObject;
+        cameraMode = CameraMode.FirstPersonView;
+        CameraChange();
     }
 
 
