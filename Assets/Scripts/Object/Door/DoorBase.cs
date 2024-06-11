@@ -7,23 +7,21 @@ public abstract class DoorBase : MonoBehaviour, ITriggerable
 {
     public bool isOpened;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     void Start()
     {
         isOpened = false;
     }
 
-    public void Trigger()
+    public abstract void Trigger();
+
+    protected void PlaySound()
     {
-        if(isOpened == false) 
+        if (audioSource != null && !audioSource.isPlaying)
         {
-            Open();
-        }
-        else
-        {
-            Close();
+            audioSource.Play();
         }
     }
-
-    public abstract void Open();
-    public abstract void Close();
 }

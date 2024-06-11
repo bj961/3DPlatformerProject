@@ -60,7 +60,13 @@ public class GameManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if(currentGameState == GameState.GameStart)
+        {
+            GameStartState();
+        }
     }
+
 
     // State : 시작화면
     public void IntroState()
@@ -72,7 +78,8 @@ public class GameManager : MonoBehaviour
     // State : 게임 시작
     public void GameStartState()
     {
-        // TODO : 필요시 구현
+        currentGameState = GameState.GameStart;
+        UIManager.Instance.ActiveUI(GameState.GameStart);
     }
 
     public void GameStart()
