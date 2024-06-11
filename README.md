@@ -3,12 +3,11 @@
 
  ## 👨‍🏫 프로젝트 소개
 
-- 게임 이름 : 
+- 게임 이름 : Escape from Alvolo
 
 - 조작키 :  
    WASD : 이동    
    Space : 점프  
-   Left Shift : 달리기  
    T : 카메라 시점 변경(1인칭 ↔ 3인칭)  
    F : 상호작용   
 
@@ -31,18 +30,26 @@
   
   
 ## 와이어프레임
-![image](https://github.com/bj961/AvoidManagerIfYouCanPublic/assets/73685098/d0a82b8c-8af8-4b74-b1c1-62c614096062)
+![스크린샷 2024-06-11 103506](https://github.com/bj961/3DPlatformerProject/assets/167056216/da6edc81-dc53-46a5-9d7e-f8f876b5efc8)
+
   
   
   
 ## 플로우차트
-![image](https://github.com/bj961/AvoidManagerIfYouCanPublic/assets/73685098/67856b67-8581-4da4-999a-56593b7a93ee)
-  
+##### Ver.1
+![플로우차트](https://github.com/bj961/3DPlatformerProject/assets/167056216/f50a9824-0309-4da8-ad6d-f4e5526c6478)
+
+##### Ver.2
+![스크린샷 2024-06-11 111731](https://github.com/bj961/3DPlatformerProject/assets/167056216/f8e0b97d-e9f5-44f5-88d4-0058946f8af1)
+
+
+
   
   
 ## Trouble Shooting
-![1](https://github.com/bj961/AvoidManagerIfYouCanPublic/assets/73685098/55b62789-d912-4871-ae10-a3affdd53821)
-![2](https://github.com/bj961/AvoidManagerIfYouCanPublic/assets/73685098/15318917-7196-409b-8169-dace7d2df8cd)
-![3](https://github.com/bj961/AvoidManagerIfYouCanPublic/assets/73685098/a6a122fd-ce80-432b-8aeb-74ed2af97c60)
-![4](https://github.com/bj961/AvoidManagerIfYouCanPublic/assets/73685098/8c6cf771-0e3e-4ccb-ac13-faf961b95ecb)
-![5](https://github.com/bj961/AvoidManagerIfYouCanPublic/assets/73685098/944c0a5e-a4cc-4395-b35d-c09bea9d808b)
+![권용](https://github.com/bj961/3DPlatformerProject/assets/167056216/bd6dd20c-80c8-4ace-a013-d4568f010185)
+![강채린](https://github.com/bj961/3DPlatformerProject/assets/167056216/dd2c7a8e-953e-4534-a92b-276fe262b6bd)
+![문병준](https://github.com/bj961/3DPlatformerProject/assets/167056216/5452c388-c054-487a-af8b-47bf5b01d6c9)
+![박의겸](https://github.com/bj961/3DPlatformerProject/assets/167056216/0b6f29aa-e146-41c8-a23e-5bc0c4b3fe7f)
+
+
