@@ -3,7 +3,7 @@
 
  ## 👨‍🏫 프로젝트 소개
 
-- 게임 이름 : AvoidManagerIfYouCan
+- 게임 이름 : 
 
 - 조작키 :  
    WASD : 이동    
