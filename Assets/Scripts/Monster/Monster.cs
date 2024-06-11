@@ -89,6 +89,9 @@ public class Monster : MonoBehaviour
 
     public void SetTarget()
     {
-        GameManager.Instance.player.gameObject.TryGetComponent<Transform>(out player);
+        if (GameManager.Instance.player != null)
+        {
+            GameManager.Instance.player.gameObject.TryGetComponent<Transform>(out player);
+        }
     }
 }
