@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 {
     public PlayerController controller;
     public PlayerCameraController cameraController;
-    public PlayerCondition condition;
     public Equipment equip;
     
 
@@ -23,9 +22,7 @@ public class Player : MonoBehaviour
         CharacterManager.Instance.Player = this;
         controller = GetComponent<PlayerController>();
         cameraController = GetComponent<PlayerCameraController>();
-        condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
-        
     }
 
     private void Start()

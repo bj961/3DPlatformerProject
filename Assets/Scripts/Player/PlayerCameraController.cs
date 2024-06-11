@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
@@ -14,20 +15,24 @@ public class PlayerCameraController : MonoBehaviour
 {
     public Camera _camera;
     public CameraMode cameraMode;
+    public GameObject crossHair;
+
+    public LayerMask firstPersonLayerMask;
+    public LayerMask thirdPersonLayerMask;
 
     Vector3 cameraPosition;
     Vector3 FPSView = new Vector3(0, -1.7f, -0.15f);
-    Vector3 TPSView = new Vector3(0, -2f, 10f);
+    Vector3 TPSView = new Vector3(0, -2f, 5f);
 
     [SerializeField] private float cameraTurnSpeed = 15f;
-    private float mouseX;
-    private float mouseY;
 
 
     void Start()
     {
+        if (crossHair == null)
+            crossHair = UIManager.Instance.InGameUI.transform.Find("CrossHair").gameObject;
         cameraMode = CameraMode.FirstPersonView;
-        cameraPosition = FPSView;
+        CameraChange();
     }
 
 
@@ -41,7 +46,7 @@ public class PlayerCameraController : MonoBehaviour
     {
         Vector3 Distance = cameraPosition;
         _camera.transform.position = transform.position - _camera.gameObject.transform.rotation * cameraPosition;// Distance;
-        
+
     }
 
     void CameraChange()
@@ -49,10 +54,14 @@ public class PlayerCameraController : MonoBehaviour
         switch (cameraMode)
         {
             case CameraMode.FirstPersonView:
+                _camera.cullingMask = firstPersonLayerMask;
                 cameraPosition = FPSView;
+                crossHair.SetActive(true);
                 break;
             case CameraMode.ThirdPersonView:
+                _camera.cullingMask = thirdPersonLayerMask;
                 cameraPosition = TPSView;
+                crossHair.SetActive(false);
                 break;
         }
     }
@@ -72,6 +81,6 @@ public class PlayerCameraController : MonoBehaviour
             }
             CameraChange();
         }
-        
+
     }
 }

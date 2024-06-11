@@ -1,24 +1,31 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
+// 물리적으로 충돌으로 작동되는 스위치
 public class PhysicalSwitch : SwitchObjectBase
 {
-    public Transform targetObject;
-    
-    private ITriggerable target;
+    public List<Transform> targetObjects;
+    private List<ITriggerable> targets = new List<ITriggerable>();
 
     protected void Start()
     {
         base.Start();
-        target = targetObject.GetComponent<ITriggerable>();
+        foreach(var targetObject in targetObjects)
+        {
+            targets.Add(targetObject.GetComponent<ITriggerable>());
+        }  
     }
 
-    // 물리적으로 누르면 작동되는 스위치
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (isSwitchOn == false)
         {
             isSwitchOn = !isSwitchOn;
-            target.Trigger();
+            foreach(var target in targets)
+            {
+                target.Trigger();
+            }
         }
     }
 
