@@ -13,7 +13,7 @@ public class SelfDisappearObject : PhysicalSwitch, ITriggerable
 
     public void Trigger()
     {
-        DestoryObject();
+        StartCoroutine("DestoryObject");
     }
 
     private IEnumerator DestoryObject()
