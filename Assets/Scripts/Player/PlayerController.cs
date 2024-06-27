@@ -259,6 +259,13 @@ public class PlayerController : MonoBehaviour
         playerInput.enabled = false;
     }
 
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        canLook = !toggle;
+    }
+
     //private void StateHandler()
     //{
     //    //if (state == MovementState.crouching)
@@ -309,10 +316,5 @@ public class PlayerController : MonoBehaviour
     //    }
     //}
 
-    void ToggleCursor()
-    {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-        canLook = !toggle;
-    }
+
 }
